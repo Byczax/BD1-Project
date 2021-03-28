@@ -47,6 +47,9 @@ Szef prosi o stworzenie bazy danych dla swojej firmy budowlanej, w której zosta
 - Położenie
 - Wielkość
 - Kadra
+- Obrót konkretnego sklepu
+- Koszty (koszt wynajmu lokalu, pensje)
+- Stan zaopatrzenia sklepu
 
 ### Stali Klienci
 
