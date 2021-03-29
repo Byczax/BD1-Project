@@ -67,7 +67,8 @@ Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi program
 - Numer identyfikacyjny zamówienia
 - Zamówione produkty wraz z ilościami
 - Koszt zamówienia
-## Przypadki użycia
+
+### Przypadki użycia
 
 ### Aktorzy
 
