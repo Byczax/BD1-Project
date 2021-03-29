@@ -3,7 +3,7 @@
 |      Wydział elektroniki       |  Kierunek: informatyka techniczna |
 |:-------------------------------|------------------------:|
 | Grupa zajęciowa: Pt 13:15      | Semestr: 2020/2021 Lato |
-| Prowadzący:                    | dr inż. Szymon Wojciechowski |
+| Prowadzący:                    | mgr inż. Szymon Wojciechowski |
 
 | Autorzy         |
 |:---------------:|
