@@ -22,19 +22,19 @@ Projekt jest podzielony na 3 części:
 
 ## Historia
 
-Szef prosi o stworzenie bazy danych dla swojej firmy budowlanej, w której zostaną zawarte:
+Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi programistów stworzenie bazy na potrzeby obsługi jego działalności. Na spotkaniu podczas którego opisał swoje oczekiwania zostały wynotowane następujące potrzeby:
 
 ### Pracownicy
 
 - Imię i nazwisko
-- Nr. identyfikacyjny
+- Numer identyfikacyjny
 - Kiedy został zatrudniony
-- ile otrzymuje pensji
-- jaki rodzaj umowy ma podpisany
+- Ile otrzymuje pensji
+- Jaki rodzaj umowy ma podpisany
 
 ### Produkty
 
-- Id produktu
+- Numer identyfikacyjny produktu
 - Nazwa produktu
 - Data produkcji
 - Firma z której został zamówiony
@@ -53,20 +53,20 @@ Szef prosi o stworzenie bazy danych dla swojej firmy budowlanej, w której zosta
 
 ### Stali Klienci
 
-- Id klienta
+- Numer identyfikacyjny klienta
 - Adres
-- kontakt
-- login do konta
-- hasło do konta (enkryptowane?)
+- Kontakt
+- Login do konta
+- Hasło do konta (odpowiednio zabezpieczone)
 **Gdy posiada firmę**
 - Adres firmy
-- nip
+- NIP
 
 ### Zamówienia
 
-- id zamówienia
-- zamówione produkty wraz z ilościami
-- koszt zamówienia
+- Numer identyfikacyjny zamówienia
+- Zamówione produkty wraz z ilościami
+- Koszt zamówienia
 ## Przypadki użycia
 
 ### Aktorzy
@@ -79,12 +79,12 @@ Szef prosi o stworzenie bazy danych dla swojej firmy budowlanej, w której zosta
 ### Szef
 
 - Dodaje sklepy
-- zarządza managerami
+- Zarządza managerami
   - tworzy nową umowę (ustala zarobki)
   - przydzielenie do konkretnego sklepu
 - Zarządza środkami
   - przeglądanie środków (przeznacza więcej na dany sklep lub buduje nowy sklep)
-- posiada podgląd na wszystkich pracowników
+- Posiada podgląd na wszystkich pracowników
 - Generuje raporty finansowe
 
 ### Manager
@@ -110,13 +110,13 @@ Szef prosi o stworzenie bazy danych dla swojej firmy budowlanej, w której zosta
   - wpisuje na stan
 - Przeglądanie stanu magazynu, sklepu
 - zmienia status zamówień
-  - z *przyjęte* -> *w trakcie*
+  - *przyjęte* -> *w trakcie*
   - *w trakcie* -> *skompletowane*
 
 ### Klient
 
 - Składa zamówienie
   - do zamówienia wybiera sposób dokumentacji [Faktura lub Paragon]
-- anuluje zamówienia
+- Anuluje zamówienia
   - tylko gdy zamówienie nie zostało przyjęte przez pracownika
-- przeglądanie zamówień
+- Przeglądanie zamówień
