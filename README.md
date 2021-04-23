@@ -121,3 +121,16 @@ Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi program
 - Anuluje zamówienia
   - tylko gdy zamówienie nie zostało przyjęte przez pracownika
 - Przeglądanie zamówień
+
+### Opis wykorzystanych narzędzi
+
+#### PostgreSQL
+
+#### PgAdmin 4 (version 13)
+
+- Zalety
+  - Łatwe tworzenie
+
+- Wady
+  - Brak połączenia 1 do 1
+  - Nie można tworzyć relacji tabeli samej do siebie 
