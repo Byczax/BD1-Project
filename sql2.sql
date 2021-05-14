@@ -42,6 +42,19 @@ CREATE TABLE public.shop
 	UNIQUE(warehouse_id)
 );
 
+CREATE TABLE public.clients
+(
+    client_id serial NOT NULL,
+    addres_id integer NOT NULL,
+    phone "char"[] NOT NULL,
+    login text NOT NULL,
+    password text NOT NULL,
+    "NIP" character varying NOT NULL,
+    order_id integer,
+    PRIMARY KEY (client_id),
+	UNIQUE (addres_id,order_id)
+);
+
 CREATE TABLE public.orders
 (
     order_id serial NOT NULL,
@@ -100,19 +113,6 @@ CREATE TABLE public.shop_warehouse
     warehouse_warehouse_id serial NOT NULL
 );
 
-CREATE TABLE public.clients
-(
-    client_id serial NOT NULL,
-    addres_id integer NOT NULL,
-    phone "char"[] NOT NULL,
-    login text NOT NULL,
-    password text NOT NULL,
-    "NIP" character varying NOT NULL,
-    order_id integer,
-    PRIMARY KEY (client_id),
-	UNIQUE (addres_id,order_id)
-);
-
 ALTER TABLE public.product_orders
     ADD FOREIGN KEY ("PRODUCTS_product_id")
     REFERENCES public.products (product_id)
@@ -134,12 +134,6 @@ ALTER TABLE public.clients
 ALTER TABLE public.supplier
     ADD FOREIGN KEY (supplier_id)
     REFERENCES public.products (suplier_id)
-    NOT VALID;
-
-
-ALTER TABLE public.client_address
-    ADD FOREIGN KEY (addres_id)
-    REFERENCES public.clients (addres_id)
     NOT VALID;
 
 
@@ -170,6 +164,12 @@ ALTER TABLE public.shop_warehouse
 ALTER TABLE public.workers
     ADD FOREIGN KEY (orders)
     REFERENCES public.orders (order_id)
+    NOT VALID;
+
+
+ALTER TABLE public.clients
+    ADD FOREIGN KEY (addres_id)
+    REFERENCES public.client_address (addres_id)
     NOT VALID;
 
 END;
