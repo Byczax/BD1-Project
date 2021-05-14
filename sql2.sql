@@ -56,14 +56,14 @@ CREATE TABLE public.shops
 CREATE TABLE public.clients
 (
     client_id serial NOT NULL,
-    addres_id integer NOT NULL,
+    address_id integer NOT NULL,
     phone "char"[] NOT NULL,
     login text NOT NULL,
     password text NOT NULL,
     "NIP" character varying NOT NULL,
     order_id integer,
     PRIMARY KEY (client_id),
-	UNIQUE (addres_id,order_id)
+	UNIQUE (address_id,order_id)
 );
 
 CREATE TABLE public.orders
@@ -103,12 +103,12 @@ CREATE TABLE public.suppliers
 
 CREATE TABLE public.client_addresses
 (
-    addres_id serial NOT NULL,
+    address_id serial NOT NULL,
     city text NOT NULL,
-    street_addres text NOT NULL,
+    street_address text NOT NULL,
     postal_code text NOT NULL,
     description text NOT NULL,
-    PRIMARY KEY (addres_id)
+    PRIMARY KEY (address_id)
 );
 
 CREATE TABLE public.products_quantity
@@ -179,8 +179,8 @@ ALTER TABLE public.workers
 
 
 ALTER TABLE public.clients
-    ADD FOREIGN KEY (addres_id)
-    REFERENCES public.client_addresses (addres_id)
+    ADD FOREIGN KEY (address_id)
+    REFERENCES public.client_addresses (address_id)
     NOT VALID;
 
 END;
