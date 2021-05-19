@@ -19,7 +19,6 @@ def random_date(start, end, prop):
 
 
 def main():
-    tables = [["workers",[("id", "serial"),("first_name","name"),("last_name","surname")]]]
     print("yo, random date, password")
     print(random_date("1/1/2008 1:30 PM", "1/1/2009 4:50 AM", random.random()))
     chars_password = string.ascii_letters + string.punctuation
@@ -31,9 +30,13 @@ def main():
     print('Random login of length', size, '  =',
           random_string_generator(size, chars_login))
     
+    create_data("client_address","city, street_addres, postal_code, description")
+    
+    
 
 
-def create_data(table_name:str, data_tuples: tuple):
+def create_data(table_name, params, params_values):
+    table_string = "insert into {table_name}(" + params + ") values(" + params_values + ");\n"
     print("something")
 
 if __name__ == '__main__':
