@@ -1,0 +1,13 @@
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (1, 'Bolków', 'Kolejowa', '65-777');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (2, 'Karpacz', 'Relaksowa', '67-876');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (3, 'Góra', 'Zielona', '89-099');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (4, 'Głogów', 'Wiejska', '12-345');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (5, 'Wąsosz', 'Zielona', '32-112');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (6, 'Piława Górna', 'Relaksowa', '12-345');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (7, 'Dzierżoniów', 'Zielona', '11-234');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (8, 'Dzierżoniów', 'Strefowa', '56-897');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (9, 'Bolków', 'Wiejska', '44-777');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (10, 'Jawor', 'Relaksowa', '56-897');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (11, 'Karpacz', 'Zielona', '65-777');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (12, 'Góra', 'Zielona', '99-123');
+insert into warehouses (warehouse_id, city, street_address, postal_code) values (13, 'Bielawa', 'Relaksowa', '12-345');
