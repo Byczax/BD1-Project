@@ -37,8 +37,8 @@ CREATE TABLE public.workers
     manager_id serial NOT NULL,
     shop_id integer NOT NULL,
     orders integer,
-    PRIMARY KEY (worker_id),
-	UNIQUE(manager_id,shop_id)
+    PRIMARY KEY (worker_id)
+	
 );
 
 CREATE TABLE public.shops
@@ -57,10 +57,10 @@ CREATE TABLE public.clients
 (
     client_id serial NOT NULL,
     address_id integer NOT NULL,
-    phone "char"[] NOT NULL,
+    phone integer NOT NULL,
     login text NOT NULL,
     password text NOT NULL,
-    "NIP" character varying NOT NULL,
+    nip integer NOT NULL,
     order_id integer,
     PRIMARY KEY (client_id),
 	UNIQUE (address_id,order_id)
@@ -74,8 +74,8 @@ CREATE TABLE public.orders
     shop_id numeric NOT NULL,
     order_date date NOT NULL,
     order_status integer NOT NULL,
-    PRIMARY KEY (order_id),
-	UNIQUE(client_id,shop_id)
+    PRIMARY KEY (order_id)
+	
 );
 
 CREATE TABLE public.product_orders
