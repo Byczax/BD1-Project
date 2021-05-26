@@ -19,3 +19,11 @@
 -- UPDATE public.workers
 -- 	SET shop_id=10
 -- 	WHERE first_name = 'Albert' AND last_name = 'Adamczyk';
+
+--Posiada podgląd na wszystkich pracowników
+
+--SELECT * FROM workers;
+
+--Generuje raporty finansowe
+
+--SELECT o.order_id, pr.shop_price FROM orders o,products pr where order_date BETWEEN '2020-01-01' AND '2021-01-01';
