@@ -27,3 +27,15 @@
 --Generuje raporty finansowe
 
 --SELECT o.order_id, pr.shop_price FROM orders o,products pr where order_date BETWEEN '2020-01-01' AND '2021-01-01';
+
+--dodaje pracowników
+
+--INSERT INTO workers VALUES( 401  , 'Janusz','Zwierzak',3000,CURRENT_DATE,'kierownik',4,10);
+
+--ustala pensje
+
+--UPDATE workers set salary= 20000 where first_name = 'JANUSZ';
+
+--zmienia status zamówienia z złożone -> przyjęte
+
+--UPDATE orders set order_status = 2 where order_id = 2;
