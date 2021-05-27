@@ -63,15 +63,27 @@ WHERE first_name = 'JANUSZ';
 
 --- 9.Składanie zamówień do producenta ---
 
--- ???
-
+-- TRZEBA DODAĆ PRODUKTY
+/*
+SELECT warehouses.warehouse_id, products.product_id, products_quantity.quantity
+FROM warehouses, products_quantity, products;
+WHERE warehouses.warehouse_id = 1;
+*/
 --- 10.Utworzenie kosztorysu zamówienia ---
 
--- ???
-
+-- TRZEBA DODAĆ PRODUKTY
+/*
+SELECT warehouses.warehouse_id, products.product_id, products.factory_price
+FROM warehouses, products_quantity, products;
+WHERE warehouses.warehouse_id = 1;
+*/
 --- 11.Tworzenie raportów finansowych ---
 
--- ???
+/*
+SELECT SUM(products.shop_price)
+FROM orders, product_orders, products
+WHERE orders.order_id = 1;
+*/
 
 /* -------- PONIŻEJ NAPISANE, NIESPRAWDZONE CZY DZIAŁA ------------- */
 
