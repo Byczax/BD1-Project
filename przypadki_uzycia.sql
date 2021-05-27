@@ -1,6 +1,6 @@
 --------------- SZEF ---------------
 
---- Dodaje sklep ---
+--- 1.Dodaje sklep ---
 
 /*
 DELETE FROM public.warehouses
@@ -15,12 +15,12 @@ INSERT INTO public.shops(
 	VALUES (((SELECT MAX(shop_id) FROM shops)+1),100,(SELECT warehouse_id FROM warehouses WHERE city = 'Wrocław' AND street_address = 'Dworcowa'),'Wrocław','Sucha 2','50-530');
 */
 
---- Tworzy umowę - ustala zarobki ---
+--- 2.Tworzy umowę - ustala zarobki ---
 
 -- SELECT AVG(salary::numeric) FROM workers WHERE employment_type = 'magazynier';
 
 
---- Przydziela pracownika do sklepu ---
+--- 3.Przydziela pracownika do sklepu ---
 
 /*
 UPDATE public.workers
@@ -28,11 +28,11 @@ SET shop_id=10
 WHERE first_name = 'Albert' AND last_name = 'Adamczyk';
 */
 
---- Posiada podgląd na wszystkich pracowników ---
+--- 4.Posiada podgląd na wszystkich pracowników ---
 
 --SELECT * FROM workers;
 
---- Generuje raporty finansowe ---
+--- 5.Generuje raporty finansowe ---
 
 /*
 SELECT o.order_id, pr.shop_price 
@@ -42,12 +42,12 @@ WHERE order_date BETWEEN '2020-01-01' AND '2021-01-01';
 
 --------------- MANAGER ---------------
 
---- dodaje pracowników ---
+--- 6.dodaje pracowników ---
 
 --INSERT INTO workers VALUES(401,'Janusz','Zwierzak',3000,CURRENT_DATE,'kierownik',4,10);
 
 
---- ustala pensje ---
+--- 7.ustala pensje ---
 
 /*
 UPDATE workers 
@@ -55,27 +55,29 @@ SET salary = 20000
 WHERE first_name = 'JANUSZ';
 */
 
---- zmienia status zamówienia z złożone -> przyjęte ---
+--- 8.zmienia status zamówienia z złożone -> przyjęte ---
 
 --UPDATE orders set order_status = 2 where order_id = 2;
 
+
+
+--- 9.Składanie zamówień do producenta ---
+
+-- ???
+
+--- 10.Utworzenie kosztorysu zamówienia ---
+
+-- ???
+
+--- 11.Tworzenie raportów finansowych ---
+
+-- ???
+
 /* -------- PONIŻEJ NAPISANE, NIESPRAWDZONE CZY DZIAŁA ------------- */
 
---- Składanie zamówień do producenta ---
+--- 12.Przeglądanie pracowników ---
 
--- ???
-
---- Utworzenie kosztorysu zamówienia ---
-
--- ???
-
---- Tworzenie raportów finansowych ---
-
--- ???
-
---- Przeglądanie pracowników ---
-
-/*
+/*DZIAŁA
 SELECT first_name, last_name, salary, employment_type 
 FROM workers
 WHERE manager_id = 1;
@@ -83,25 +85,25 @@ WHERE manager_id = 1;
 
 --------------- PRACOWNIK ---------------
 
---- Wykonuje zamówienia ---
+--- 13.Wykonuje zamówienia ---
 
 -- ???
 
---- Składa wniosek o uzupełnienie ---
+--- 14.Składa wniosek o uzupełnienie ---
 
 -- Nie mamy na to tabeli??
 
---- Składa wniosek o podwyżkę ---
+--- 15.Składa wniosek o podwyżkę ---
 
 -- ???
 
---- Przyjmowanie towaru na stan sklepu ---
+--- 16.Przyjmowanie towaru na stan sklepu ---
 
 -- ???
 
---- Przeglądanie stanu magazynu ---
+--- 17.Przeglądanie stanu magazynu ---
 
-/*
+/* NIE DZIAŁA
 SELECT product_name, quantity
 FROM products
 JOIN products_quantity
@@ -109,9 +111,9 @@ USING (product_id)
 WHERE warehouse_id = 10;
 */
 
---- Zmiana statusu zamówienia ---
+--- 18.Zmiana statusu zamówienia ---
 
-/*
+/* JEST IDENTYCZNE JAK KOD POWYŻEJ WIĘĆ CHYBA DZIAŁA
 UPDATE orders 
 SET order_status = 3 
 WHERE order_id = 2;
@@ -123,27 +125,28 @@ WHERE order_id = 2;
 
 --------------- KLIENT ---------------
 
---- Składanie zamówienia ---
+--- 19.Składanie zamówienia ---
 
 /*
 INSERT INTO orders (client_id, products, shop_id, order_date, order_status)
 VALUES (10,[1,1,2,3,4,6,7],2,GETDATE(),1);
 */
 
---- Wybór dokumentacji ---
+--- 20.Wybór dokumentacji ---
 
 -- nie ma na to pola???
 
---- Anuluje zamówienie ---
+--- 21.Anuluje zamówienie ---
 
 /*
 DELETE FROM orders
 WHERE order_id = 2 AND order_status = 1;
 */
 
---- Przeglądanie zamówień ---
+--- 22.Przeglądanie zamówień ---
 
-/*
+/* DZIAŁA
 SELECT * 
-FROM orders;
+FROM orders
+WHERE client_id = 10;
 */
