@@ -15,7 +15,7 @@ INSERT INTO public.shops(
 
 --- 2.Tworzy umowę - ustala zarobki ---
 
-SELECT AVG(salary::numeric) FROM workers WHERE employment_type = 'magazynier';
+SELECT AVG(salary::numeric) as średnia_płaca FROM workers WHERE employment_type = 'magazynier';
 
 --- 3.Przydziela pracownika do sklepu ---
 
