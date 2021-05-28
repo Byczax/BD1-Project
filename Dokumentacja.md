@@ -258,7 +258,7 @@ WHERE manager_id = 1;
 
 # 4. Podsumowanie
 
-Udało nam się utworzyć z naszych pomysłów bazę danych. Posiada ona sporą większość zakładanych przez nas podczas etapu planowania funkcjonalności. Dzięki temu że zanim zrobiliśmy praktyczną część projektu, dobrze zaplanowaliśmy jak baza powinna wyglądać, udało nam się w głównej mierze uniknąć problemów. Zdaliśmy sobie sprawę że posiadanie kopii zapasowej całej bazy, albo skryptów tworzących tabele, dane etc. jest bardzo ważne. Bez nich, gdyby wystąpił poważny błąd, moglibyśmy stracić mnóstwo czasu na odtwarzanie bazy oraz danych.
+Udało nam się utworzyć z naszych pomysłów bazę danych. Posiada ona większość zakładanych przez nas podczas etapu planowania funkcjonalności. Dzięki temu, że zanim zrobiliśmy praktyczną część projektu, dobrze zaplanowaliśmy jak baza powinna wyglądać, udało nam się w głównej mierze uniknąć problemów. Zdaliśmy sobie sprawę że posiadanie kopii zapasowej całej bazy, albo skryptów tworzących tabele i umieszczających dane jest bardzo ważne. Bez nich, gdyby wystąpił poważny błąd, moglibyśmy stracić mnóstwo czasu na odtwarzanie bazy oraz danych.
 
 # 5. Literatura
 
