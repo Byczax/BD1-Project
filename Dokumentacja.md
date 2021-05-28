@@ -1,4 +1,4 @@
-# Bazy Danych 1 - Sklep Budowlany
+ # Bazy Danych 1 - Sklep Budowlany
 
 | Wydział elektroniki       | Kierunek: informatyka techniczna |
 | :------------------------ | -------------------------------: |
@@ -11,11 +11,37 @@
 |    Dębowski Jakub     |
 | Rzymyszkiewicz Tomasz |
 
-# Wstęp
 
-## Opis systemu
+# 1. Spis treści
 
-Celem projektu było zrealizowanie bazy danych sklepu budowlanego.
+- [Bazy Danych 1 - Sklep Budowlany](#bazy-danych-1---sklep-budowlany)
+- [1. Spis treści](#1-spis-treści)
+- [2. Wstęp](#2-wstęp)
+  - [2.1. Opis systemu](#21-opis-systemu)
+  - [2.2. Wymagania użytkownika](#22-wymagania-użytkownika)
+    - [2.2.1. Szef](#221-szef)
+    - [2.2.2. Manager](#222-manager)
+    - [2.2.3. Pracownik](#223-pracownik)
+    - [2.2.4. Klient](#224-klient)
+  - [2.3. Model bazy danych](#23-model-bazy-danych)
+- [3. Implementacja bazy danych](#3-implementacja-bazy-danych)
+  - [3.1. Przykładowe skrypty](#31-przykładowe-skrypty)
+    - [3.1.1. Tworzenie przykładowych tabel](#311-tworzenie-przykładowych-tabel)
+      - [3.1.1.1. Tworzenie tabeli produktów](#3111-tworzenie-tabeli-produktów)
+      - [3.1.1.2. Tworzenie tabeli klientów](#3112-tworzenie-tabeli-klientów)
+      - [3.1.1.3. Tworzenie tabeli pracowników](#3113-tworzenie-tabeli-pracowników)
+    - [3.1.2. Przykładowe transakcje (Przypadki użycia)](#312-przykładowe-transakcje-przypadki-użycia)
+      - [3.1.2.1. Generacja raportu finansowego](#3121-generacja-raportu-finansowego)
+      - [3.1.2.2. Przeglądanie pracowników przypisanych do managera](#3122-przeglądanie-pracowników-przypisanych-do-managera)
+- [4. Podsumowanie](#4-podsumowanie)
+- [5. Literatura](#5-literatura)
+# 2. Wstęp
+
+## 2.1. Opis systemu
+
+Tematem zrealizowanego projektu jest system obsługi sieci sklepów budowlanych.
+Celem bazy danych jest zapewnienie podstawowych funkcjonalności potrzebnych do obsługi i zarządzania sieciową firmą budowlaną.
+Nazwy tabel odzwierciedlają dane, które są w nich przechowywane dlatego nie ma potrzeby omawiania każdej z nich.
 
 W systemie umieściliśmy niezbędne informacje z punktu widzenia różnych użytkowników bazy.
 Baza danych została zaprojektowana zgodnie z zasadami normalizacji.
@@ -70,26 +96,71 @@ System przechowuje następujące informacje:
     - Ulica
     - Kod pocztowy
 
-## Opis wymagań funkcjonalnych
+## 2.2. Wymagania użytkownika
 
--
+### 2.2.1. Szef
 
-## Diagram przypadków użycia
+- Dodaje sklepy
+- Zarządza managerami
+  - tworzy nową umowę (ustala zarobki)
+  - przydzielenie do konkretnego sklepu
+- Zarządza środkami
+  - przeglądanie środków (przeznacza więcej na dany sklep lub buduje nowy sklep)
+- Posiada podgląd na wszystkich pracowników
+- Generuje raporty finansowe
 
-## Model fizyczny bazy danych
+### 2.2.2. Manager
+
+- Zarządza pracownikami
+  - dodaje pracowników
+  - ustala pensje
+- Przydziela zamówienia
+  - zmienia status zamówienia z _złożone_ -> _przyjęte_
+- Rozpatruje wnioski uzupełnienia magazynu
+  - składanie zamówień
+  - utworzenie kosztorysów
+- Tworzenie raportów finansowych
+- Przeglądanie pracowników
+  - ich zarobki, umowę [ tylko pracowników którzy są w tym samym sklepie co on]
+
+### 2.2.3. Pracownik
+
+- Wykonuje zamówienia
+- składa wniosek o uzupełnienie magazynu o dane towary
+- Składa wniosek o podwyżkę
+- Przyjmowanie uzupełnień magazynu
+  - wpisuje na stan
+- Przeglądanie stanu magazynu, sklepu
+- zmienia status zamówień
+  - _przyjęte_ -> _w trakcie_
+  - _w trakcie_ -> _skompletowane_
+
+### 2.2.4. Klient
+
+- Składa zamówienie
+  - do zamówienia wybiera sposób dokumentacji [Faktura lub Paragon]
+- Anuluje zamówienia
+  - tylko gdy zamówienie nie zostało przyjęte przez pracownika
+- Przeglądanie zamówień
+
+<!-- ## Opis wymagań funkcjonalnych -->
+
+<!-- ## Diagram przypadków użycia -->
+
+## 2.3. Model bazy danych
 
 ![model](Diagram%20ER.png)
 
-## Implementacja bazy danych
+# 3. Implementacja bazy danych
 
 Jako system zarządzający wybraliśmy `PostgreSQL`, a jako narzędzie wspomagające administrację bazy wybraliśmy `pgAdmin 4`.
 Za pomocą `pgAdmin 4` wygenerowaliśmy kod SQL tworzący bazę danych na podstawie wcześniej stworzonego w tym programie diagramu.
 
-## Przykładowe skrypty
+## 3.1. Przykładowe skrypty
 
-### Tworzenie przykładowych tabel
+### 3.1.1. Tworzenie przykładowych tabel
 
-#### Tworzenie tabeli produktów
+#### 3.1.1.1. Tworzenie tabeli produktów
 
 ```sql
 CREATE TABLE public.products
@@ -105,7 +176,7 @@ CREATE TABLE public.products
 );
 ```
 
-#### Tworzenie tabeli klientów
+#### 3.1.1.2. Tworzenie tabeli klientów
 
 ```sql
 CREATE TABLE public.clients
@@ -122,7 +193,7 @@ CREATE TABLE public.clients
 );
 ```
 
-#### Tworzenie tabeli pracowników
+#### 3.1.1.3. Tworzenie tabeli pracowników
 
 ```sql
 CREATE TABLE public.workers
@@ -141,31 +212,56 @@ CREATE TABLE public.workers
 );
 ```
 
-### Przykładowe transakcje (Przypadki użycia)
+### 3.1.2. Przykładowe transakcje (Przypadki użycia)
 
-#### Generacja raportu finansowego
+#### 3.1.2.1. Generacja raportu finansowego
 
 ```sql
-SELECT o.order_id, pr.shop_price
-FROM orders o,products pr
-WHERE order_date BETWEEN '2020-01-01' AND '2021-01-01';
+SELECT SUM(products.shop_price)
+FROM orders, product_orders, products
+WHERE orders.order_id = 1;
 ```
 
 Przykładowy rezultat:
 
-| order_id | shop_price |
-| -------- | ---------- |
-| 1        | $73.69     |
-| 2        | $73.69     |
-| 5        | $73.69     |
-| 6        | $73.69     |
-| 8        | $73.69     |
-| 10       | $73.69     |
-| 11       | $73.69     |
-| 13       | $73.69     |
-| 14       | $73.69     |
-| 15       | $73.69     |
+| sum           |
+| ------------- |
+| $2,203,266.00 |
 
-## Podsumowanie
+#### 3.1.2.2. Przeglądanie pracowników przypisanych do managera
+
+```sql
+SELECT first_name, last_name, salary, employment_type
+FROM workers
+WHERE manager_id = 1;
+```
+
+| first_name | last_name   | salary    | employment_type |
+| ---------- | ----------- | --------- | --------------- |
+| Amadeusz   | Kwiatkowski | $1,532.55 | sprzątaczka     |
+| Alina      | Nowakowski  | $5,656.11 | sprzedawca      |
+| Alberta    | Dąbrowski   | $9,096.50 | księgowy        |
+| Albert     | Kwiatkowski | $4,658.55 | sprzątaczka     |
+| Aleksander | Nowakowski  | $3,258.44 | dozorca         |
+| Ada        | Wiśniewski  | $4,038.82 | księgowy        |
+| Adam       | Zieliński   | $2,186.20 | magazynier      |
+| Alfred     | Kwiatkowski | $6,761.83 | magazynier      |
+| Agnieszka  | Piotrowski  | $1,939.54 | dozorca         |
+| Apolinary  | Kamiński    | $2,774.83 | dozorca         |
+| Angelina   | Piotrowski  | $6,896.26 | sprzątaczka     |
+
+# 4. Podsumowanie
 
 Udało nam się utworzyć z naszych pomysłów bazę danych. Posiada ona sporą większość zakładanych przez nas podczas etapu planowania funkcjonalności. Dzięki temu że zanim zrobiliśmy praktyczną część projektu, dobrze zaplanowaliśmy jak baza powinna wyglądać, udało nam się w głównej mierze uniknąć problemów. Zdaliśmy sobie sprawę że posiadanie kopii zapasowej całej bazy, albo skryptów tworzących tabele, dane etc. jest bardzo ważne. Bez nich, gdyby wystąpił poważny błąd, moglibyśmy stracić mnóstwo czasu na odtwarzanie bazy oraz danych.
+
+# 5. Literatura
+
+[Dokumentacja PostgreSQL](https://www.postgresql.org/docs/13/index.html)
+
+[Dokumentacja pgAdmin4](https://www.pgadmin.org/docs/pgadmin4/latest/index.html)
+
+[Narzędzie do wygenerowania danych](https://mockaroo.com/)
+
+[ERD](https://www.smartdraw.com/entity-relationship-diagram/)
+
+[Szczegółowy opis postaci znormalizowanych](https://www.sqlpedia.pl/projektowanie-i-normalizacja-bazy-danych/)
