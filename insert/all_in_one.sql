@@ -121,7 +121,7 @@ CREATE TABLE public.products_quantity
 CREATE TABLE public.shop_warehouses
 (
     shop_warehouse_id integer NOT NULL,
-    warehouse_warehouse_id serial NOT NULL
+    warehouse_warehouse_id integer NOT NULL
 );
 
 ALTER TABLE public.product_orders
