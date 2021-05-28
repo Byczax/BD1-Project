@@ -53,13 +53,13 @@ UPDATE orders set order_status = 2 where order_id = 2;
 --- 9.Składanie zamówień do producenta ---
 
 SELECT warehouses.warehouse_id, products.product_id, products_quantity.quantity
-FROM warehouses, products_quantity, products;
+FROM warehouses, products_quantity, products
 WHERE warehouses.warehouse_id = 1;
 
 --- 10.Utworzenie kosztorysu zamówienia ---
 
 SELECT warehouses.warehouse_id, products.product_id, products.factory_price
-FROM warehouses, products_quantity, products;
+FROM warehouses, products_quantity, products
 WHERE warehouses.warehouse_id = 1;
 
 --- 11.Tworzenie raportów finansowych ---
