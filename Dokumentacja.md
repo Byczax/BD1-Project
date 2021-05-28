@@ -1,4 +1,4 @@
- # Bazy Danych 1 - Sklep Budowlany
+# Bazy Danych 1 - Sklep Budowlany
 
 | Wydział elektroniki       | Kierunek: informatyka techniczna |
 | :------------------------ | -------------------------------: |
@@ -23,8 +23,8 @@
     - [2.2.2. Manager](#222-manager)
     - [2.2.3. Pracownik](#223-pracownik)
     - [2.2.4. Klient](#224-klient)
-  - [Historia](#historia)
-  - [2.3. Model bazy danych](#23-model-bazy-danych)
+  - [2.3. Historia](#23-historia)
+  - [2.4. Model bazy danych](#24-model-bazy-danych)
 - [3. Implementacja bazy danych](#3-implementacja-bazy-danych)
   - [3.1. Przykładowe skrypty](#31-przykładowe-skrypty)
     - [3.1.1. Tworzenie przykładowych tabel](#311-tworzenie-przykładowych-tabel)
@@ -39,7 +39,7 @@
       - [3.1.2.5. Przydzielenie pracownika do sklepu](#3125-przydzielenie-pracownika-do-sklepu)
       - [3.1.2.6.  Przeglądanie zatrudnionych pracowników](#3126--przeglądanie-zatrudnionych-pracowników)
       - [3.1.2.7.  Generowanie raportów finansowych](#3127--generowanie-raportów-finansowych)
-      - [3.1.2.7.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku](#3127--złożenie-wniosku-o-podwyżkę---ustalenie-w-różnicy-płac-pracownika-w-stosunku-do-średniej-na-stanowisku)
+      - [3.1.2.8.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku](#3128--złożenie-wniosku-o-podwyżkę---ustalenie-w-różnicy-płac-pracownika-w-stosunku-do-średniej-na-stanowisku)
 - [4. Podsumowanie](#4-podsumowanie)
 - [5. Literatura](#5-literatura)
 # 2. Wstęp
@@ -154,12 +154,12 @@ System przechowuje następujące informacje:
 
 <!-- ## Diagram przypadków użycia -->
 
-## Historia
+## 2.3. Historia
 
 Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi programistów stworzenie bazy na potrzeby obsługi jego działalności. Na spotkaniu podczas którego opisał swoje oczekiwania zostały wynotowane następujące potrzeby:
 
 
-## 2.3. Model bazy danych
+## 2.4. Model bazy danych
 
 ![model](Diagram%20ER.png)
 
@@ -317,7 +317,7 @@ Zbiór cen zamówień w wybranym okresie
 |10	     |"$97.24   |
 
 
-#### 3.1.2.7.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku
+#### 3.1.2.8.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku
 
 ```sql
 SELECT salary::numeric - (SELECT AVG(salary::numeric) 
