@@ -36,8 +36,8 @@ WHERE first_name = 'Albert' AND last_name = 'Adamczyk';
 
 /*
 SELECT o.order_id, pr.shop_price 
-FROM orders o,products pr 
-WHERE order_date BETWEEN '2020-01-01' AND '2021-01-01';
+FROM orders o, product_orders po, products pr
+WHERE (order_date BETWEEN '2020-01-01' AND '2021-01-01') AND o.order_id = po.orders_order_id AND po.products_product_id = pr.product_id;
 */
 
 --------------- MANAGER ---------------
