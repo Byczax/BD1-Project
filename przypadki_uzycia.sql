@@ -115,7 +115,9 @@ WHERE manager_id = 1;
 
 --- XX.Składa wniosek o podwyżkę ---
 
--- ???
+/*
+SELECT salary::numeric - (SELECT AVG(salary::numeric) FROM workers WHERE employment_type = 'magazynier') as różnica_płacy FROM workers WHERE worker_id = 20 ;
+*/
 
 --- 14.Przyjmowanie towaru na stan sklepu ---
 
