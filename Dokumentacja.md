@@ -36,6 +36,10 @@
       - [3.1.2.2. Przeglądanie pracowników przypisanych do managera](#3122-przeglądanie-pracowników-przypisanych-do-managera)
       - [3.1.2.3. Dodanie sklepu przez szefa](#3123-dodanie-sklepu-przez-szefa)
       - [3.1.2.4. Ustalenie średnich zarobków na stanowisku w celu stworzenia umowy](#3124-ustalenie-średnich-zarobków-na-stanowisku-w-celu-stworzenia-umowy)
+      - [3.1.2.5. Przydzielenie pracownika do sklepu](#3125-przydzielenie-pracownika-do-sklepu)
+      - [3.1.2.6.  Przeglądanie zatrudnionych pracowników](#3126--przeglądanie-zatrudnionych-pracowników)
+      - [3.1.2.7.  Generowanie raportów finansowych](#3127--generowanie-raportów-finansowych)
+      - [3.1.2.7.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku](#3127--złożenie-wniosku-o-podwyżkę---ustalenie-w-różnicy-płac-pracownika-w-stosunku-do-średniej-na-stanowisku)
 - [4. Podsumowanie](#4-podsumowanie)
 - [5. Literatura](#5-literatura)
 # 2. Wstęp
@@ -278,6 +282,53 @@ SELECT AVG(salary::numeric) as średnia_płaca FROM workers WHERE employment_typ
 |średnia_płaca        |
 |---------------------|
 |5930.9522058823529412|
+
+#### 3.1.2.5. Przydzielenie pracownika do sklepu
+
+```sql
+UPDATE public.workers
+SET shop_id=10
+WHERE first_name = 'Albert' AND last_name = 'Adamczyk';
+```
+
+#### 3.1.2.6.  Przeglądanie zatrudnionych pracowników
+
+```sql
+SELECT * 
+FROM workers;
+```
+
+#### 3.1.2.7.  Generowanie raportów finansowych
+
+```sql
+SELECT o.order_id, pr.shop_price 
+FROM orders o, product_orders po, products pr
+WHERE (order_date BETWEEN '2020-01-01' AND '2021-01-01') AND o.order_id = po.orders_order_id AND po.products_product_id = pr.product_id;
+```
+
+Zbiór cen zamówień w wybranym okresie
+|order_id|shop_price|
+|--------|----------|
+|1	     |"$76.13   |
+|2	     |"$68.98   |
+|5	     |"$72.61   |
+|6	     |"$56.39   |
+|8	     |"$82.94   |
+|10	     |"$97.24   |
+
+
+#### 3.1.2.7.  Złożenie wniosku o podwyżkę - ustalenie w różnicy płac pracownika w stosunku do średniej na stanowisku
+
+```sql
+SELECT salary::numeric - (SELECT AVG(salary::numeric) 
+FROM workers WHERE employment_type = 'magazynier') as różnica_płacy 
+FROM workers 
+WHERE worker_id = 20;
+```
+
+|różnica_płacy        |
+|---------------------|
+|-126.4422058823529412|
 
 
 # 4. Podsumowanie
