@@ -103,7 +103,15 @@ WHERE manager_id = 1;
 
 --- 13.Składa wniosek o uzupełnienie ---
 
--- Nie mamy na to tabeli??
+-- Jeżeli produkt zamówiony ma w sklepie ilość zero to go wyświetl
+
+/*
+-- SELECT product_name
+-- FROM products
+-- JOIN products_quantity
+-- USING (product_id)
+-- WHERE quantity = 0;
+*/
 
 --- XX.Składa wniosek o podwyżkę ---
 
