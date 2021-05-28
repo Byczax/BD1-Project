@@ -23,6 +23,7 @@
     - [2.2.2. Manager](#222-manager)
     - [2.2.3. Pracownik](#223-pracownik)
     - [2.2.4. Klient](#224-klient)
+  - [Historia](#historia)
   - [2.3. Model bazy danych](#23-model-bazy-danych)
 - [3. Implementacja bazy danych](#3-implementacja-bazy-danych)
   - [3.1. Przykładowe skrypty](#31-przykładowe-skrypty)
@@ -146,6 +147,11 @@ System przechowuje następujące informacje:
 <!-- ## Opis wymagań funkcjonalnych -->
 
 <!-- ## Diagram przypadków użycia -->
+
+## Historia
+
+Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi programistów stworzenie bazy na potrzeby obsługi jego działalności. Na spotkaniu podczas którego opisał swoje oczekiwania zostały wynotowane następujące potrzeby:
+
 
 ## 2.3. Model bazy danych
 
