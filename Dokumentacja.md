@@ -34,6 +34,8 @@
     - [3.1.2. Przykładowe transakcje (Przypadki użycia)](#312-przykładowe-transakcje-przypadki-użycia)
       - [3.1.2.1. Generacja raportu finansowego](#3121-generacja-raportu-finansowego)
       - [3.1.2.2. Przeglądanie pracowników przypisanych do managera](#3122-przeglądanie-pracowników-przypisanych-do-managera)
+      - [3.1.2.3. Dodanie sklepu przez szefa](#3123-dodanie-sklepu-przez-szefa)
+      - [3.1.2.4. Ustalenie średnich zarobków na stanowisku w celu stworzenia umowy](#3124-ustalenie-średnich-zarobków-na-stanowisku-w-celu-stworzenia-umowy)
 - [4. Podsumowanie](#4-podsumowanie)
 - [5. Literatura](#5-literatura)
 # 2. Wstęp
@@ -255,6 +257,28 @@ WHERE manager_id = 1;
 | Agnieszka  | Piotrowski  | $1,939.54 | dozorca         |
 | Apolinary  | Kamiński    | $2,774.83 | dozorca         |
 | Angelina   | Piotrowski  | $6,896.26 | sprzątaczka     |
+
+
+#### 3.1.2.3. Dodanie sklepu przez szefa
+
+```sql
+INSERT INTO public.warehouses(
+	warehouse_id, city, street_address, postal_code)
+	VALUES (((SELECT MAX(warehouse_id)  FROM warehouses) + 1), 'Wrocław', 'Dworcowa', '50-31');
+INSERT INTO public.shops(
+	shop_id, surface, warehouse_id, city, street_address, postal_code)
+	VALUES (((SELECT MAX(shop_id) FROM shops)+1),100,(SELECT warehouse_id FROM warehouses WHERE city = 'Wrocław' AND street_address = 'Dworcowa'),'Wrocław','Sucha 2','50-530');
+```
+
+#### 3.1.2.4. Ustalenie średnich zarobków na stanowisku w celu stworzenia umowy
+
+```sql
+SELECT AVG(salary::numeric) as średnia_płaca FROM workers WHERE employment_type = 'magazynier';
+```
+|średnia_płaca        |
+|---------------------|
+|5930.9522058823529412|
+
 
 # 4. Podsumowanie
 
