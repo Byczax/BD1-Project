@@ -97,23 +97,23 @@ WHERE manager_id = 1;
 
 --------------- PRACOWNIK ---------------
 
---- 13.Wykonuje zamówienia ---
+--- XX.Wykonuje zamówienia ---
 
--- ???
+-- Zmiana statusu zamówienia, goto 18.
 
---- 14.Składa wniosek o uzupełnienie ---
+--- 13.Składa wniosek o uzupełnienie ---
 
 -- Nie mamy na to tabeli??
 
---- 15.Składa wniosek o podwyżkę ---
+--- XX.Składa wniosek o podwyżkę ---
 
 -- ???
 
---- 16.Przyjmowanie towaru na stan sklepu ---
+--- 14.Przyjmowanie towaru na stan sklepu ---
 
 -- ???
 
---- 17.Przeglądanie stanu magazynu ---
+--- 15.Przeglądanie stanu magazynu ---
 
 /* NIE DZIAŁA
 SELECT product_name, quantity
@@ -123,7 +123,7 @@ USING (product_id)
 WHERE warehouse_id = 10;
 */
 
---- 18.Zmiana statusu zamówienia ---
+--- 16.Zmiana statusu zamówienia ---
 
 /* JEST IDENTYCZNE JAK KOD POWYŻEJ WIĘĆ CHYBA DZIAŁA
 UPDATE orders 
@@ -137,25 +137,25 @@ WHERE order_id = 2;
 
 --------------- KLIENT ---------------
 
---- 19.Składanie zamówienia ---
+--- 17.Składanie zamówienia ---
 
 /*
 INSERT INTO orders (client_id, products, shop_id, order_date, order_status)
-VALUES (10,[1,1,2,3,4,6,7],2,GETDATE(),1);
+VALUES (10,ARRAY [1,1,2,3,4,6,7],2,GETDATE(),1);
 */
 
---- 20.Wybór dokumentacji ---
+--- XX.Wybór dokumentacji ---
 
--- nie ma na to pola???
+-- nie ma na to pola
 
---- 21.Anuluje zamówienie ---
+--- 18.Anuluje zamówienie ---
 
 /*
 DELETE FROM orders
 WHERE order_id = 2 AND order_status = 1;
 */
 
---- 22.Przeglądanie zamówień ---
+--- 19.Przeglądanie zamówień ---
 
 /* DZIAŁA
 SELECT * 
