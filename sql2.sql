@@ -80,8 +80,8 @@ CREATE TABLE public.orders
 
 CREATE TABLE public.product_orders
 (
-    "PRODUCTS_product_id" integer NOT NULL,
-    "ORDERS_order_id" integer NOT NULL
+    products_product_id integer NOT NULL,
+    orders_order_id integer NOT NULL
 );
 
 CREATE TABLE public.warehouses
@@ -121,17 +121,17 @@ CREATE TABLE public.products_quantity
 CREATE TABLE public.shop_warehouses
 (
     shop_warehouse_id integer NOT NULL,
-    warehouse_warehouse_id serial NOT NULL
+    warehouse_warehouse_id integer NOT NULL
 );
 
 ALTER TABLE public.product_orders
-    ADD FOREIGN KEY ("PRODUCTS_product_id")
+    ADD FOREIGN KEY (products_product_id)
     REFERENCES public.products (product_id)
     NOT VALID;
 
 
 ALTER TABLE public.product_orders
-    ADD FOREIGN KEY ("ORDERS_order_id")
+    ADD FOREIGN KEY (orders_order_id)
     REFERENCES public.orders (order_id)
     NOT VALID;
 
