@@ -81,7 +81,7 @@ CREATE TABLE public.orders
 CREATE TABLE public.product_orders
 (
     "PRODUCTS_product_id" integer NOT NULL,
-    "ORDERS_order_id" serial NOT NULL
+    "ORDERS_order_id" integer NOT NULL
 );
 
 CREATE TABLE public.warehouses
