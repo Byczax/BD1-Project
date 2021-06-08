@@ -133,4 +133,6 @@ Właściciel ogólnopolskiej sieci sklepów budowlanych zleca zespołowi program
 
 - Wady
   - Brak połączenia 1 do 1
-  - Nie można tworzyć relacji tabeli samej do siebie 
+  - Nie można tworzyć relacji tabeli samej do siebie
+
+## Otrzymana ocena: 5.0
